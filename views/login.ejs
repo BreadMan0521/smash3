@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	
+	<title>SmashPredictions</title>
+	
+	<link rel="stylesheet" type="text/css" href="stylesheets/navbar.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+	<link rel="icon" type="image/png" href="images/shaker-icon.ico">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+</head>
+
+<body>
+
+<div class='container-fluid' style='background-color:black;height:100vh'>
+	<div class='row'>
+		<div class='hidden-sm hidden-xs col-md-1'></div>
+		<div class='col-sm-12 col-md-10' style='background-color:#FDF3F2;height:100vh'>
+
+			<% include templates/navbar.ejs %>
+
+			<div id='login-box'>
+				<div id='sign-up'>Sign in</div><br>
+				<div class='username-password'>Email or Username</div>
+				<div><form><input type='text'></form></div><br>
+				<div class='username-password'>Password</div>
+				<div><form><input type='text'></form></div><br>
+				<div>Remember me on this device.</div><br>
+				<div>Forgot your email or password?</div>
+				<div>New to Smash Predictions? <a href='/create_account'>Make an account.</a></div><br>
+				<div><button id='sign-in-button'>Sign In</button></div>
+			</div>
+		</div>
+		<div class='hidden-sm hidden-xs col-md-1'></div>
+	</div>
+</div>
+
+
+</body>
+</html>

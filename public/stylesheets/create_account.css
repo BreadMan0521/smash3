@@ -1,0 +1,45 @@
+.a{
+	
+}
+
+#account-box{
+	width:500px;
+	padding:0px 37px 0px 37px;
+	overflow:hidden;
+	margin:0 auto;
+}
+
+#Create-Account{
+	font-size:40px;
+	text-align:center;
+	color:#B10000;
+	font-weight:bold;
+}
+
+.account-options{
+	font-size:20px;
+	text-align:left;
+}
+
+.input-boxes{
+	border:solid #B10000;
+	width:100%;
+	height:40px;
+}
+
+.radio-button{
+	font-size:25px;
+	margin-right:50px;
+}
+
+#sign-in-button{
+	margin-bottom:10px;
+	color:white;
+	font-weight:bold;
+	font-size:20px;
+	background-color:#B10000;
+	border:none;
+	width:100%;
+	height:40px;
+	border:black 1px solid;
+}

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name='description' content='Predict Outcomes of Smash Events'>
+	<meta name='keywords' content='smash, smashbros, predictions, melee, wii, u, 4'>
+	
+	<title>SmashPredictions</title>
+	
+	<link rel="stylesheet" type="text/css" href="stylesheets/navbar.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/hannah.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/phone.css">
+	<link rel="icon" type="image/png" href="images/shaker-icon.ico">
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	
+	</head>
+
+<style>
+
+@media screen and (max-width : 479px) {
+  .tourney-name-year{
+    font-size:60px;
+  }
+}
+
+@media screen and (min-width : 480px) and (max-width : 767px){
+  .tourney-name-year{
+    font-size:80px;
+  }
+}
+@media screen and (min-width : 768px) and (max-width : 991px){
+  .tourney-name-year{
+    font-size:100px;
+  }
+}
+@media screen and (min-width : 992px) {
+  .tourney-name-year{
+    font-size:80px;
+  }
+}
+
+</style>	
+	
+<body>
+
+<div class='container-fluid' style='background-color:black'>
+	<div class='row'>
+		<div class='hidden-sm hidden-xs col-md-1'></div>
+		<div class='col-sm-12 col-md-10' style='background-color:#FDF3F2'>
+
+			<% include templates/navbar.ejs %>
+
+			</br></br>
+				
+			<div class='horizontal-strip'>
+				<div class='row'>
+					<div class='hidden-sm hidden-xs col-md-3' style='background-color:#B10000'>
+						<img src="images/jiggs-melee.png" height='250px' border="0" alt="Null"/>
+					</div>
+					<div class='hidden-xs col-sm-12 col-md-6' style='background-color:#B10000;overflow:hidden'>
+						<div class='tourney-name-year' id='tourney-name'>EVOLUTION</div>
+						<div class='tourney-name-year' id='tourney-year'>2016</div>
+						<div>
+							<div id='melee' class='melee-smash-tabs'><a href='#' class='a' onclick='openMeleeSmashTab(event, "block", "linen", "none", "darkred")'>Melee</a></div>
+							<a href="index.html" target="_blank" id='twitch'>Live Stream Here</a>
+							<div id='smash' class='melee-smash-tabs'><a href='#' class='a' onclick='openMeleeSmashTab(event, "none", "darkred", "block", "linen")'>Sm4sh</a></div>			
+						</div>
+					</div>
+					<div class='hidden-lg hidden-md hidden-sm col-xs-12' style='background-color:#B10000;overflow:hidden'>
+						<div class='tourney-name-year' id='tourney-name'>EVOLUTION</div>
+						<div class='tourney-name-year' id='tourney-year'>2016</div>
+						<div>
+							<div id='melee' class='melee-smash-tabs'><a href='#' class='a' onclick='openMeleeSmashTab(event, "block", "linen", "none", "darkred")'>Melee</a></div>
+							<div id='smash' class='melee-smash-tabs'><a href='#' class='a' onclick='openMeleeSmashTab(event, "none", "darkred", "block", "linen")'>Sm4sh</a></div>			
+						</div>
+					</div>
+					<div class='hidden-sm hidden-xs col-md-3' style='background-color:#B10000'>
+						<img src="images/fox-melee.png" height='250px' border="0" alt="Null"/>
+					</div>
+				</div>
+			</div>
+
+			</br></br>
+
+			<div id='melee-sm4sh'>
+				<div class='row'>
+					<div class='hidden-sm hidden-xs col-md-2' id='personal'>Your Shit</div>
+<!--large devices--><div class='hidden-xs col-sm-12 col-md-8'id='main-feed'> 
+						<div>
+							<ul class="nav nav-pills" id='mainfeedtabs'>
+								<li class="active"><a data-toggle="pill" href="#match">Match</a></li>
+								<li><a data-toggle="pill" href="#tournament">Tournament</a></li>
+								<li><a data-toggle="pill" href="#community">Community</a></li>
+								<li><a data-toggle="pill" href="#leaderboards">Leaderboards</a></li>
+							</ul>
+							<div class="tab-content">
+								<div id="match" class="tab-pane active">
+									<div id='current-match' class='all-boxes'><a href="#" class='a' onclick="openPredictionsWindow(event)">
+									<center><table style='width:100%;'>
+										<tr>
+											<td class='versus'>Armada</td>
+											<td class='versus'>vs</td>
+											<td class='versus'>Mango</td>
+										</tr>
+									</center></table>
+									</a></div>
+									<div id='waiting-match' class='all-boxes'>
+										<center><table style='width:100%'>
+											<tr>
+												<td class='versus'>Armada</td>
+												<td class='versus'>vs</td>
+												<td class='versus'>Mango</td>
+											</tr>
+										</center></table>
+									</div>
+									<div id='finished-match' class='all-boxes'>
+										<center><table style='width:100%'>
+											<tr>
+												<td class='versus'>Armada</td>
+												<td class='versus'>vs</td>
+												<td class='versus'>Mango</td>
+											</tr>
+										</center></table>
+									</div>
+								</div>
+								<div id="tournament" class="tab-pane">
+								  <h3>Menu 1</h3>
+								</div>
+								<div id="community" class="tab-pane">
+								  <h3>Menu 2</h3>
+								</div>
+								<div id="leaderboards" class="tab-pane">
+								  <h3>Menu 3</h3>
+								</div>
+							</div>
+						</div>
+						
+						</br>
+					</div>
+<!--phones only-->	
+
+					<div class='hidden-sm hidden-xs col-md-2'id='trending'>Trending</div>
+				</div>
+			</div>
+			<div id='coming-soon-smash'>
+			<center><h1>Coming soon! In like a year and a half. Or longer.</h1></center>
+			<center><img src="images/poopy.jpg" alt='null' style='margin-bottom:50px'/></center>
+			</div>
+		</div>
+		<div class='hidden-sm hidden-xs col-md-1'></div>
+	</div>
+</div>
+
+
+<div id='hidden-prediction-popup-block'>
+	<div class="hidden-prediction-popup">
+		<div class="hidden-prediction-columns">
+			<div class='player-header' style='color:red'>Armada</div>
+			<div class='vertical-spacing-popup'>
+				<div class='player-wins'>Armada Wins</div>
+				<div><center><form><input type='text' class='pred-input-boxes'> x <img src="images/turnip.png" class='turnips' border="0" alt="Null"/></form></center></div>
+			</div>
+			<div class='vertical-spacing-popup'>	
+				<div class='player-options'>Armada Wins 3-0</div>
+				<div><center><form><input type='text' class='pred-input-boxes'> x <img src="images/turnip.png" class='turnips' border="0" alt="Null"/></form></center></div>
+			</div>
+			<div class='vertical-spacing-popup'>	
+				<div class='player-options'>Armada "4 Stocks"</div>
+				<div><center><form><input type='text' class='pred-input-boxes'> x <img src="images/turnip.png" class='turnips' border="0" alt="Null"/></form></center></div>
+			</div>
+		</div>
+		<div class="hidden-prediction-columns">
+			<div id='vs-header'>VS</div>
+			<table>
+				<tr>
+					<td id='winner-odds' colspan='2'>5/3</td>
+				</tr>
+				<tr>	
+					<td class='player1-odds'>10/3</td>
+					<td class='player2-odds'>10/3</td>
+				</tr>
+				<tr>
+					<td class='player1-odds'>20/3</td>
+					<td class='player2-odds'>20/3</td>
+				</tr>
+			</table>
+		</div>
+		<div class="hidden-prediction-columns">
+			<div class='player-header' style='color:blue'>Mango</div>
+			<div class='vertical-spacing-popup'>	
+				<div class='player-wins'>Mango Wins</div>
+				<div><center><form><input type='text' class='pred-input-boxes'> x <img src="images/turnip.png" class='turnips' border="0" alt="Null"/></form></center></div>
+			</div>
+			<div class='vertical-spacing-popup'>		
+				<div class='player-options'>Mango Wins 3-0</div>
+				<div><center><form><input type='text' class='pred-input-boxes'> x <img src="images/turnip.png" class='turnips' border="0" alt="Null"/></form></center></div>
+			</div>
+			<div class='vertical-spacing-popup'>		
+				<div class='player-options'>Mango "4 Stocks"</div>
+				<div><center><form><input type='text' class='pred-input-boxes'> x <img src="images/turnip.png" class='turnips' border="0" alt="Null"/></form></center></div>
+			</div>
+		</div>
+		<div><a href="#" onclick="closePredictionsWindow(event)">
+			<center><button id='submit-button'>Submit</button></center>
+		</a></div>
+	</div>
+</div>
+
+
+<script>
+	
+	//Melee & Smash tab (default)
+	function openMeleeSmashTab(evt, a, b, c, d) {
+		document.getElementById('melee-sm4sh').style.display = a;
+		document.getElementById('coming-soon-smash').style.display = c;
+		document.getElementById('melee').style.backgroundColor = b;
+		document.getElementById('smash').style.backgroundColor = d;
+		evt.preventDefault();
+	}
+	
+	// Opens predictions popup
+	function openPredictionsWindow(evt) {
+		document.getElementById("hidden-prediction-popup-block").style.display="block";
+		evt.preventDefault();
+	}
+	
+	// Closes predictions popup
+	function closePredictionsWindow(evt) {
+		document.getElementById("hidden-prediction-popup-block").style.display="none";
+		evt.preventDefault();
+	}
+	
+	
+	
+	//prevent tab change on page refresh
+	$('#mainfeedtabs a').click(function(e) {
+	  e.preventDefault();
+	  $(this).tab('show');
+	});
+
+	// store the currently selected tab in the hash value
+	$("ul.nav-pills > li > a").on("shown.bs.tab", function(e) {
+	  var id = $(e.target).attr("href").substr(1);
+	  window.location.hash = id;
+	});
+
+	// on load of the page: switch to the currently selected tab
+	var hash = window.location.hash;
+	$('#mainfeedtabs a[href="' + hash + '"]').tab('show');
+	
+	 
+
+</script>
+	
+</body>
+</html>
+
+
+
+

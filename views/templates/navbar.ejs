@@ -1,0 +1,50 @@
+<div class='row'>
+    <div class='col-xs-2 col-sm-1 col-md-1'id='nub'></div>
+    <div class='col-xs-8 col-sm-4 col-md-3'>
+        <a href='/'>
+            <center><img src="images/Drawing.png" id='logo' border="0" alt="Null"/></center>
+        </a>
+    </div>
+    <div class='col-xs-2 col-sm-7 col-md-8'id='navbar-menu'>
+        <div class='hidden-xs nav-bar-options'><a href='/login' class='a'>Login</a></div>
+        <div class='hidden-xs nav-bar-options'>Store</div>
+        <div class='hidden-xs nav-bar-options'>My Account</div>
+        <div class='hidden-xs nav-bar-options'>Statistics</div>
+        <div class="hidden-lg hidden-md hidden-sm">
+            <center>
+                <div id="menu-hamburger"><a href="#" onclick="openNavbarMenu(event)">
+                    <div class="hamburger-slice"></div>
+                    <div class="hamburger-slice middle-slice"></div>
+                    <div class="hamburger-slice"></div>
+                </a></div>
+            </center>
+        </div>
+    </div>
+</div>
+
+
+<div id="hidden-navbar-menu">
+    <div class="hidden-menu-options">Statistics</div>
+    <div class="hidden-menu-options">My Account</div>
+    <div class="hidden-menu-options">Store</div>
+    <div class="hidden-menu-options">Logout</div>
+</div>
+
+<script>
+
+	// Hide Window if click outside
+	$(document).mouseup(function (e) {
+		var container1 = $("#hidden-navbar-menu");
+		if (!container1.is(e.target) // if the target of the click isn't the container...
+			&& container1.has(e.target).length === 0) {  // ... nor a descendant of the container
+			container1.hide();
+		}
+	});
+
+	function openNavbarMenu(evt) {
+		var hiddenMenu = document.getElementById("hidden-navbar-menu");
+		hiddenMenu.style.display="block";
+		evt.preventDefault();
+	}
+
+</script>
