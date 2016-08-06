@@ -3,11 +3,14 @@
 }
 
 #login-box{
+	position:absolute;
+	left:50%;
+	margin:-200px;
+	top:350px;
 	border:solid 1px;
 	background-color:white;
 	width:400px;
 	padding-left:15px;
-	margin:20px auto 50px;
 }
 
 #sign-up{
