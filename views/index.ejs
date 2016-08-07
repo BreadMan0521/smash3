@@ -220,22 +220,12 @@
 	
 	//Melee (default) & Smash tab
 	(function() {
-		var tab = $('.melee-smash-tabs');	
-		tab.click(function() {
-			var $this = $(this),
-				tabName = $this.attr('id'),
-				melee = $('#melee-display'),
-				smash = $('#coming-soon-smash');
-			$this.css('background-color','#FDF3F2');
-			$this.siblings('.melee-smash-tabs').css('background-color', 'darkred');
-			if (tabName === 'melee') {
-				melee.css('display','block');
-				smash.css('display','none');
-			}
-			else {
-				melee.css('display','none');
-				smash.css('display','block');
-			}
+		$('.melee-smash-tabs').click(function() {
+			$(this)
+				.css('background-color','#FDF3F2')
+				.siblings('.melee-smash-tabs').css('background-color', 'darkred');
+			$('#melee-display').toggle();
+			$('#coming-soon-smash').toggle();
 		});
 	})();
 	
