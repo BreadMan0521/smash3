@@ -41,9 +41,11 @@
 	padding:2px 10px 0px 10px;
 	margin-top:31px;
 	font-family:arial;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
 }
 
-#melee-sm4sh{
+#melee-display{
 	display:block;
 }
 
@@ -53,17 +55,12 @@
 
 #melee{
 	float:left;
-	background-color:linen;
-	border-top-left-radius:5px;
-	border-top-right-radius:5px;
 	background-color:#FDF3F2
 }
 
 #smash{
 	float:right;
 	background-color:darkred;
-	border-top-left-radius:5px;
-	border-top-right-radius:5px
 }
 
 .row1{
@@ -96,7 +93,7 @@
 	margin:0px 20px 20px 20px !important;
 }
 
-/* tab color */
+/* inactive tab font color */
 .nav-pills li a {
   background-color: transparent; 
   color:#B10000;
@@ -104,11 +101,12 @@
   font-size:18px;
 }
 
+/*active tab background color and hover color */
 .nav-pills li.active a, .nav-pills li.active a:hover{
 	background-color:#B10000 !important;
 }
 
-/* hover tab color */
+/* inactive tab hover color */
 .nav-pills li a:hover {
   background-color: lightgray !important;
 }

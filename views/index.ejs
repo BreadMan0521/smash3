@@ -70,17 +70,17 @@
 						<div class='tourney-name-year' id='tourney-name'>EVOLUTION</div>
 						<div class='tourney-name-year' id='tourney-year'>2016</div>
 						<div>
-							<div id='melee' class='melee-smash-tabs'><a href='#' class='a' onclick='openMeleeSmashTab(event, "block", "linen", "none", "darkred")'>Melee</a></div>
+							<div id='melee' class='melee-smash-tabs'><a href='#' class='a'>Melee</a></div>
 							<a href="index.html" target="_blank" id='twitch'>Live Stream Here</a>
-							<div id='smash' class='melee-smash-tabs'><a href='#' class='a' onclick='openMeleeSmashTab(event, "none", "darkred", "block", "linen")'>Sm4sh</a></div>			
+							<div id='smash' class='melee-smash-tabs'><a href='#' class='a'>Sm4sh</a></div>			
 						</div>
 					</div>
 					<div class='hidden-lg hidden-md hidden-sm col-xs-12' style='background-color:#B10000;overflow:hidden'>
 						<div class='tourney-name-year' id='tourney-name'>EVOLUTION</div>
 						<div class='tourney-name-year' id='tourney-year'>2016</div>
 						<div>
-							<div id='melee' class='melee-smash-tabs'><a href='#' class='a' onclick='openMeleeSmashTab(event, "block", "linen", "none", "darkred")'>Melee</a></div>
-							<div id='smash' class='melee-smash-tabs'><a href='#' class='a' onclick='openMeleeSmashTab(event, "none", "darkred", "block", "linen")'>Sm4sh</a></div>			
+							<div id='melee' class='melee-smash-tabs'><a href='#' class='a'>Melee</a></div>
+							<div id='smash' class='melee-smash-tabs'><a href='#' class='a'>Sm4sh</a></div>				
 						</div>
 					</div>
 					<div class='hidden-sm hidden-xs col-md-3' style='background-color:#B10000'>
@@ -91,7 +91,7 @@
 
 			</br></br>
 
-			<div id='melee-sm4sh'>
+			<div id='melee-display'>
 				<div class='row'>
 					<div class='hidden-sm hidden-xs col-md-2' id='personal'>Your Shit</div>
 <!--large devices--><div class='hidden-xs col-sm-12 col-md-8'id='main-feed'> 
@@ -218,25 +218,37 @@
 
 <script>
 	
-	//Melee & Smash tab (default)
-	function openMeleeSmashTab(evt, a, b, c, d) {
-		document.getElementById('melee-sm4sh').style.display = a;
-		document.getElementById('coming-soon-smash').style.display = c;
-		document.getElementById('melee').style.backgroundColor = b;
-		document.getElementById('smash').style.backgroundColor = d;
-		evt.preventDefault();
-	}
+	//Melee (default) & Smash tab
+	(function() {
+		var tab = $('.melee-smash-tabs');	
+		tab.click(function() {
+			var $this = $(this),
+				tabName = $this.attr('id'),
+				melee = $('#melee-display'),
+				smash = $('#coming-soon-smash');
+			$this.css('background-color','#FDF3F2');
+			$this.siblings('.melee-smash-tabs').css('background-color', 'darkred');
+			if (tabName === 'melee') {
+				melee.css('display','block');
+				smash.css('display','none');
+			}
+			else {
+				melee.css('display','none');
+				smash.css('display','block');
+			}
+		});
+	})();
 	
 	// Opens predictions popup
-	function openPredictionsWindow(evt) {
+	function openPredictionsWindow(e) {
 		document.getElementById("hidden-prediction-popup-block").style.display="block";
-		evt.preventDefault();
+		e.preventDefault();
 	}
 	
 	// Closes predictions popup
-	function closePredictionsWindow(evt) {
+	function closePredictionsWindow(e) {
 		document.getElementById("hidden-prediction-popup-block").style.display="none";
-		evt.preventDefault();
+		e.preventDefault();
 	}
 	
 	
