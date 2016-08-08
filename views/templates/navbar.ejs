@@ -27,7 +27,7 @@
     <div class="hidden-menu-options">Statistics</div>
     <div class="hidden-menu-options">My Account</div>
     <div class="hidden-menu-options">Store</div>
-    <div class="hidden-menu-options">Logout</div>
+    <div class="hidden-menu-options">Login</div>
 </div>
 
 <script>
@@ -41,10 +41,11 @@
 		}
 	});
 
-	function openNavbarMenu(evt) {
-		var hiddenMenu = document.getElementById("hidden-navbar-menu");
-		hiddenMenu.style.display="block";
-		evt.preventDefault();
-	}
+	//Open hamburger
+	(function(){
+		$('#menu-hamburger').click(function() {
+			$("#hidden-navbar-menu").toggle();
+		});
+	})();
 
 </script>

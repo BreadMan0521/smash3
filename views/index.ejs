@@ -104,7 +104,7 @@
 							</ul>
 							<div class="tab-content">
 								<div id="match" class="tab-pane active">
-									<div id='current-match' class='all-boxes'><a href="#" class='a' onclick="openPredictionsWindow(event)">
+									<div id='current-match' class='all-boxes'><a href="#" class='a'>
 									<center><table style='width:100%;'>
 										<tr>
 											<td class='versus'>Armada</td>
@@ -209,7 +209,7 @@
 				<div><center><form><input type='text' class='pred-input-boxes'> x <img src="images/turnip.png" class='turnips' border="0" alt="Null"/></form></center></div>
 			</div>
 		</div>
-		<div><a href="#" onclick="closePredictionsWindow(event)">
+		<div>
 			<center><button id='submit-button'>Submit</button></center>
 		</a></div>
 	</div>
@@ -230,18 +230,21 @@
 	})();
 	
 	// Opens predictions popup
-	function openPredictionsWindow(e) {
-		document.getElementById("hidden-prediction-popup-block").style.display="block";
-		e.preventDefault();
-	}
+	(function(){
+		$('#current-match').click(function(e) {
+			$("#hidden-prediction-popup-block").show();
+			e.preventDefault();
+		});
+	})();
 	
-	// Closes predictions popup
-	function closePredictionsWindow(e) {
-		document.getElementById("hidden-prediction-popup-block").style.display="none";
-		e.preventDefault();
-	}
-	
-	
+	// Hide prediction popup if click outside
+	$(document).mouseup(function (e) {
+		var container1 = $("#hidden-prediction-popup-block");
+		if (!container1.is(e.target) // if the target of the click isn't the container...
+			&& container1.has(e.target).length === 0) {  // ... nor a descendant of the container
+			container1.hide();
+		}
+	});
 	
 	//prevent tab change on page refresh
 	$('#mainfeedtabs a').click(function(e) {
