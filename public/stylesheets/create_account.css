@@ -32,6 +32,12 @@
 	margin-right:50px;
 }
 
+#warning-message{
+    color: black;
+    font-size:15px;
+    background-color: yellow;
+}
+
 #sign-in-button{
 	margin-bottom:10px;
 	color:white;

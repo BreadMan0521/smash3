@@ -32,61 +32,51 @@
 			<% include templates/navbar.ejs %>
 
 			<div id='account-box'>
+				<form action="/create_account" method="post">
 				<div id='Create-Account'>Create a New Account</div><br>
 				<div>
 					<div class='account-options'>Email</div>
-					<div><form><input type='text' name='email' class='input-boxes'></form></div>
+					<div><input type='text' name='email' class='input-boxes' maxlength='2000' value="<%= email %>"></div>
 				</div><br>
 				<div>
 					<div class='account-options'>Username</div>
-					<div><form><input type='text' name='username' class='input-boxes'></form></div>
+					<div><input type='text' name='username' class='input-boxes' maxlength='40' value="<%= username %>"></div>
 				</div><br>
 				<div>
 					<div class='account-options' style='float:left'>Password</div>
-					<div><form><input type='text' name='password' class='input-boxes'></form></div>
+					<div><input type='password' name='password1' class='input-boxes' maxlength='2000'></div>
 				</div>
 				<div><br>
 					<div class='account-options'>Re-enter Password</div>
-					<div><form><input type='text' name='password' class='input-boxes'></form></div>
+					<div><input type='password' name='password2' class='input-boxes' maxlength='2000'></div>
 				</div>
-				<div><br>
+				<!-- <div><br>
 					<div class='account-options'>Choose a Home Page</div>
 					<div>
-						<form class='radio-button' style='float:left'><input type='radio' name='homepage' value='Melee' checked>Melee</form>
-						<form class='radio-button'><input type='radio' name='homepage' value='Smash-4'>Smash 4</form>
+						<div class='radio-button' style='float:left'><input type='radio' name='homepage' value='Melee' checked>Melee</input></div>
+						<div class='radio-button'><input type='radio' name='homepage' value='Smash-4'>Smash 4</input></div>
 					</div>
-				</div>
+				</div> -->
 				<div><br>
-					<div class='account-options'>Choose a Melee Character</div>
-					<div><select>
+					<div class='account-options'>Choose Your Character (Sm4sh coming soon)</div>
+					<div><select name = "melee_char">
 						<option value='--'>--</option>
-						<option value='Bowser'>Bowser</option><option value='Captain-Falcon'>Captain Falcon</option><option value='Dr-Mario'>Dr. Mario</option>
-						<option value='DK'>Donkey Kong</option><option value='Falco'>Falco</option><option value='Fox'>Fox</option>
-						<option value='Ganandorf'>Ganandorf</option><option value='Ice-Climbers'>Ice-Climbers</option><option value='Jiggly-Puff'>Jiggly-Puff</option>
-						<option value='Kirby'>Kirby</option><option value='Link'>Link</option><option value='Luigi'>Luigi</option>
-						<option value='Mario'>Mario</option><option value='Marth'>Marth</option><option value='Mewtwo'>Mewtwo</option>
-						<option value='Mr-GW'>Mr. Game & Watch</option><option value='Ness'>Ness</option><option value='Peach'>Peach</option>
-						<option value='Pichu'>Pichu</option><option value='Pikachu'>Pikachu</option><option value='Roy'>Roy</option>
-						<option value='Samus'>Samus</option><option value='Sheik'>Sheik</option><option value='Yoshi'>Yoshi</option>
-						<option value='Young-Link'>Young Link</option><option value='Young-Link'>Zelda</option>
+						<option value='bowser'>Bowser</option><option value='captainfalcon'>Captain Falcon</option><option value='drmario'>Dr. Mario</option>
+						<option value='donkeykong'>Donkey Kong</option><option value='falco'>Falco</option><option value='fox'>Fox</option>
+						<option value='ganondorf'>Ganondorf</option><option value='iceclimbers'>Ice Climbers</option><option value='jigglypuff'>Jigglypuff</option>
+						<option value='kirby'>Kirby</option><option value='link'>Link</option><option value='luigi'>Luigi</option>
+						<option value='mario'>Mario</option><option value='marth'>Marth</option><option value='mewtwo'>Mewtwo</option>
+						<option value='mrgameandwatch'>Mr. Game & Watch</option><option value='ness'>Ness</option><option value='peach'>Peach</option>
+						<option value='pichu'>Pichu</option><option value='pikachu'>Pikachu</option><option value='roy'>Roy</option>
+						<option value='samus'>Samus</option><option value='sheik'>Sheik</option><option value='yoshi'>Yoshi</option>
+						<option value='younglink'>Young Link</option><option value='zelda'>Zelda</option>
 					</select></div>
 				</div>
-				<div><br>
-					<div class='account-options'>Choose a Sm4sh Character</div>
-					<div><select>
-						<option value='--'>--</option>
-						<option value='Bowser'>Bowser</option><option value='Captain-Falcon'>Captain Falcon</option><option value='Dr-Mario'>Dr. Mario</option>
-						<option value='DK'>Donkey Kong</option><option value='Falco'>Falco</option><option value='Fox'>Fox</option>
-						<option value='Ganandorf'>Ganandorf</option><option value='Ice-Climbers'>Ice-Climbers</option><option value='Jiggly-Puff'>Jiggly-Puff</option>
-						<option value='Kirby'>Kirby</option><option value='Link'>Link</option><option value='Luigi'>Luigi</option>
-						<option value='Mario'>Mario</option><option value='Marth'>Marth</option><option value='Mewtwo'>Mewtwo</option>
-						<option value='Mr-GW'>Mr. Game & Watch</option><option value='Ness'>Ness</option><option value='Peach'>Peach</option>
-						<option value='Pichu'>Pichu</option><option value='Pikachu'>Pikachu</option><option value='Roy'>Roy</option>
-						<option value='Samus'>Samus</option><option value='Sheik'>Sheik</option><option value='Yoshi'>Yoshi</option>
-						<option value='Young-Link'>Young Link</option><option value='Young-Link'>Zelda</option>
-					</select></div>
-				</div><br><br>
+				<br>
+				<center><div id='warning-message'><%= error_message %></div></center>
+				<br>
 				<div><button id='sign-in-button'>Create an Account</button></div>
+				</form>
 			</div>
 		</div>
 		<div class='hidden-sm hidden-xs col-md-1'></div>
